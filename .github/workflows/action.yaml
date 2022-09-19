@@ -5,8 +5,8 @@ on:
 jobs:
   maven-container-job:
     runs-on: ubuntu-latest
-#     container:
-#       image: maven:3.8.6-jdk-8
+    container:
+      image: maven:3.8.6-jdk-8
       #env:
       #  NODE_ENV: development
       #ports:
@@ -16,39 +16,40 @@ jobs:
       # options: --cpus 1
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 8
-        uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'adopt'
-      - name: Create Custom Maven Dir
-        run: mkdir /home/runner/test-maven
+#       - name: Set up JDK 8
+#         uses: actions/setup-java@v3
+#         with:
+#           java-version: '8'
+#           distribution: 'adopt'
+#       - name: Create Custom Maven Dir
+#         run: mkdir /home/runner/test-maven
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
-          #path: ~/.m2/repository
-          path: /home/runner/test-maven/
+          path: ~/.m2/repository
+          #path: /home/runner/test-maven/
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Build with Maven
-        run: mvn clean package -Dmaven.repo.local=/home/runner/test-maven/
-      - name: List Custom Maven Dir 
-        run: |
-           ls /home/runner/test-maven/
-      - name: List files
-        run: |
-            pwd
-            ls -la
-            ls /
-            echo "------------------------------"
-            ls /data
-            echo "------------------------------"
-            ls /mnt
-      - name: List files of runner
-        run: |
-            ls -la /home/runner/work/
-            echo "------------------------------"
-            ls -la /home/runner/
+        run: mvn clean package
+        # run: mvn clean package -Dmaven.repo.local=/home/runner/test-maven/
+#       - name: List Custom Maven Dir 
+#         run: |
+#            ls /home/runner/test-maven/
+#       - name: List files
+#         run: |
+#             pwd
+#             ls -la
+#             ls /
+#             echo "------------------------------"
+#             ls /data
+#             echo "------------------------------"
+#             ls /mnt
+#       - name: List files of runner
+#         run: |
+#             ls -la /home/runner/work/
+#             echo "------------------------------"
+#             ls -la /home/runner/
     
         
