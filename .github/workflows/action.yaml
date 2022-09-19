@@ -1,4 +1,4 @@
-name: Maven Contianer
+name: Maven Container
 on:
   push:
     branches: [ master ]
@@ -40,7 +40,9 @@ jobs:
       - name: List files
         run: |
             pwd
+            echo "------------------------------"
             ls -la
+            echo "------------------------------"
             ls /
             echo "------------------------------"
             ls __w
