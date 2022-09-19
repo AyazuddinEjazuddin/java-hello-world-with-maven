@@ -46,6 +46,8 @@ jobs:
             ls /
             echo "------------------------------"
             ls /__w
+            echo "------"
+            ls -la /__w
             echo "------------------------------"
             ls /mnt
 #       - name: List files of runner
