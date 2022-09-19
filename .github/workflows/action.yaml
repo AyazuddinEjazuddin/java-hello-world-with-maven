@@ -50,6 +50,8 @@ jobs:
             ls -la /__w
             echo "------------------------------"
             ls /mnt
+            echo "------------------------------"
+            ls /home
 #       - name: List files of runner
 #         run: |
 #             ls -la /home/runner/work/
