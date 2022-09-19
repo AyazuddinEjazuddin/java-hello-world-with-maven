@@ -1,4 +1,4 @@
-name: Maven Continaer
+name: Maven Contianer
 on:
   push:
     branches: [ master ]
@@ -21,10 +21,13 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
+      - name: Create Custom Dir
+        run: mkdir /home/runner/test-maven
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
-          path: ~/.m2/repository
+          #path: ~/.m2/repository
+          path: /home/runner/test-maven/
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
