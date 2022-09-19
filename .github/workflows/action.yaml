@@ -21,9 +21,9 @@ jobs:
 #         with:
 #           java-version: '8'
 #           distribution: 'adopt'
-      - name: Create Custom Maven Dir
-        #run: mkdir /home/runner/test-maven
-        run: mkdir /opt/test-maven
+#       - name: Create Custom Maven Dir
+#         #run: mkdir /home/runner/test-maven
+#         run: mkdir /opt/test-maven
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
