@@ -12,54 +12,22 @@ jobs:
       #ports:
       #  - 80
       volumes:
-        - /opt/maven_dir/:/opt/test-maven
+        - /opt/maven_dir/:~/.m2/repository
       # options: --cpus 1
     steps:
       - uses: actions/checkout@v3
-#       - name: Set up JDK 8
-#         uses: actions/setup-java@v3
-#         with:
-#           java-version: '8'
-#           distribution: 'adopt'
-#       - name: Create Custom Maven Dir
-#         #run: mkdir /home/runner/test-maven
-#         run: mkdir /opt/test-maven
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
-          #path: ~/.m2/repository
-          #path: /home/runner/test-maven/
-          path: /opt/test-maven/
+          path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Build with Maven
-        # run: mvn clean package -Dmaven.repo.local=/home/runner/test-maven/
-        run: mvn clean package -Dmaven.repo.local=/opt/test-maven/
-      - name: List Custom Maven Dir 
+        run: mvn clean package
+      - name: List .m2 
         run: |
-          # ls /home/runner/test-maven/
-           ls /opt/test-maven/
-#       - name: List files
-#         run: |
-#             pwd
-#             echo "------------------------------"
-#             ls -la
-#             echo "------------------------------"
-#             ls /
-#             echo "------------------------------"
-#             ls /__w
-#             echo "------"
-#             ls -la /__w
-#             echo "------------------------------"
-#             ls /mnt
-#             echo "------------------------------"  
-#             find / -type d -name ".m2"    #/root/.m2
-#       - name: List files of runner
-#         run: |
-#             ls -la /home/runner/work/
-#             echo "------------------------------"
-#             ls -la /home/runner/
+           ls ~/.m2/repository
     
     
         
