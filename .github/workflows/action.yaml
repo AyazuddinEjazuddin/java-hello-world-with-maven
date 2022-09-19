@@ -11,8 +11,8 @@ jobs:
       #  NODE_ENV: development
       #ports:
       #  - 80
-      # volumes:
-      #  - my_docker_volume:/volume_mount
+      volumes:
+        - /opt/maven_dir/:/opt/test-maven
       # options: --cpus 1
     steps:
       - uses: actions/checkout@v3
@@ -40,21 +40,21 @@ jobs:
         run: |
           # ls /home/runner/test-maven/
            ls /opt/test-maven/
-      - name: List files
-        run: |
-            pwd
-            echo "------------------------------"
-            ls -la
-            echo "------------------------------"
-            ls /
-            echo "------------------------------"
-            ls /__w
-            echo "------"
-            ls -la /__w
-            echo "------------------------------"
-            ls /mnt
-            echo "------------------------------"  
-            find / -type d -name ".m2"    #/root/.m2
+#       - name: List files
+#         run: |
+#             pwd
+#             echo "------------------------------"
+#             ls -la
+#             echo "------------------------------"
+#             ls /
+#             echo "------------------------------"
+#             ls /__w
+#             echo "------"
+#             ls -la /__w
+#             echo "------------------------------"
+#             ls /mnt
+#             echo "------------------------------"  
+#             find / -type d -name ".m2"    #/root/.m2
 #       - name: List files of runner
 #         run: |
 #             ls -la /home/runner/work/
