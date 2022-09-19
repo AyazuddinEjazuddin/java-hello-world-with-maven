@@ -37,15 +37,15 @@ jobs:
 #       - name: List Custom Maven Dir 
 #         run: |
 #            ls /home/runner/test-maven/
-#       - name: List files
-#         run: |
-#             pwd
-#             ls -la
-#             ls /
-#             echo "------------------------------"
-#             ls /data
-#             echo "------------------------------"
-#             ls /mnt
+      - name: List files
+        run: |
+            pwd
+            ls -la
+            ls /
+            echo "------------------------------"
+            ls /data
+            echo "------------------------------"
+            ls /mnt
 #       - name: List files of runner
 #         run: |
 #             ls -la /home/runner/work/
