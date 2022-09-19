@@ -12,17 +12,14 @@ jobs:
       #ports:
       #  - 80
       volumes:
-        - /opt/maven_dir/:/root/.m2/repository/
+        - /opt/maven_dir/:~/.m2/repository/
       # options: --cpus 1
     steps:
       - uses: actions/checkout@v3
-      - name: List .m2 
-        run: |
-          ls /root/.m2/repository
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
-          path: /root/.m2/repository/
+          path: ~/.m2/repository/
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
@@ -31,13 +28,11 @@ jobs:
        # run: mvn clean package -Dmaven.repo.local=/root/.m2/repository/
       - name: List .m2 
         run: |
-           ls -la /root/
+           ls -la ~
            echo "------------------"
-           ls -l /root/.m2/
+           ls -l ~/.m2/
            echo "------------------"
-           ls /root/.m2/repository
-           echo "------------------"
-           ls /
+           ls ~/.m2/repository/
            
            
     
