@@ -36,7 +36,10 @@ jobs:
             ls -la
             ls /
             ls /data
+      - name: List files of runner
+        run: |
             ls -la /home/runner/work/
+            echo "------------------------------"
             ls -la /home/runner/
     
         
