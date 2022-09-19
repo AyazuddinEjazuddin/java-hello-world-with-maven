@@ -12,7 +12,7 @@ jobs:
       #ports:
       #  - 80
       volumes:
-        - /opt/maven_dir/:~/.m2/repository
+        - /opt/maven_dir/:/root/.m2/repository
       # options: --cpus 1
     steps:
       - uses: actions/checkout@v3
