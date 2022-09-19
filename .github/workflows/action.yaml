@@ -35,5 +35,8 @@ jobs:
             pwd
             ls -la
             ls /
+            ls /data
+            ls -la /home/runner/work/
+            ls -la /home/runner/
     
         
