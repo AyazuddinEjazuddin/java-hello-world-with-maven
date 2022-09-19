@@ -20,16 +20,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /root/.m2/repository/
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          key: ${{ runner.os }}-maven-1-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Build with Maven
         run: mvn clean package
        # run: mvn clean package -Dmaven.repo.local=/root/.m2/repository/
-      - name: List .m2 
-        run: |
-           ls -la /root
-           echo "------------------"
-           ls -l /root/.m2/
-           echo "------------------"
-           ls /root/.m2/repository/
