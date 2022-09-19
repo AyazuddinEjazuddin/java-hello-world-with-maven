@@ -35,7 +35,10 @@ jobs:
             pwd
             ls -la
             ls /
+            echo "------------------------------"
             ls /data
+            echo "------------------------------"
+            ls /mnt
       - name: List files of runner
         run: |
             ls -la /home/runner/work/
