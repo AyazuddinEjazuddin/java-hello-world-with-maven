@@ -11,8 +11,8 @@ jobs:
       #  NODE_ENV: development
       #ports:
       #  - 80
-      volumes:
-        - /opt/maven_dir/:/root/.m2/repository/
+#       volumes:
+#         - /opt/maven_dir/:/root/.m2/repository/
       # options: --cpus 1
     steps:
       - uses: actions/checkout@v3
