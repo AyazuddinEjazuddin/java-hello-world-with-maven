@@ -27,7 +27,11 @@ jobs:
         run: mvn clean package
       - name: List .m2 
         run: |
-           ls ~/.m2/repository
+           ls -la /root/
+           echo "------------------"
+           ls -l /root/.m2/
+           echo "------------------"
+           ls /root/.m2/repository
     
     
         
