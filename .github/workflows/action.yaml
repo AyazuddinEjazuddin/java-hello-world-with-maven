@@ -33,6 +33,8 @@ jobs:
            ls -l /root/.m2/
            echo "------------------"
            ls /root/.m2/repository
+           echo "------------------"
+           ls /
            
            
     
