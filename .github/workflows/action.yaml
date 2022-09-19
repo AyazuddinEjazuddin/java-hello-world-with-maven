@@ -51,7 +51,7 @@ jobs:
             echo "------------------------------"
             ls /mnt
             echo "------------------------------"
-            ls /home
+            find / -type d -name ".m2"
 #       - name: List files of runner
 #         run: |
 #             ls -la /home/runner/work/
